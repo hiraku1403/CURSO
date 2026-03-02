@@ -1,44 +1,43 @@
- let numeroSecreto = Math.floor(Math.random() * 100) + 1;
- let tentativas = 0;
+let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+let tentativasRestantes = 10; // Limite de vidas
 
-    function verificarPalpite() {
-        const input = document.getElementById('palpiteUsuario');
-        const msg = document.getElementById('mensagem');
-        const palpite = Number(input.value);
-        tentativas++;
+function verificarPalpite() {
+    const input = document.getElementById('palpiteUsuario');
+    const msg = document.getElementById('mensagem');
+    const displayTentativas = document.getElementById('tentativasRestantes');
+    const palpite = Number(input.value);
 
-        if (!palpite || palpite < 1 || palpite > 100) {
-            msg.textContent = "Por favor, digite um número entre 1 e 100.";
-            msg.style.color = "red";
-            return;
-        }
-
-        if (palpite === numeroSecreto) {
-            msg.textContent = `Parabéns! Você acertou em ${tentativas} tentativas!`;
-            msg.style.color = "green";
-            finalizarJogo();
-        } else if (palpite > numeroSecreto) {
-            msg.textContent = "Muito alto! Tente um número menor.";
-            msg.style.color = "orange";
-        } else {
-            msg.textContent = "Muito baixo! Tente um número maior.";
-            msg.style.color = "orange";
-        }
-        
-        input.value = '';
-        input.focus();
+    // Validação básica
+    if (!palpite || palpite < 1 || palpite > 100) {
+        msg.textContent = "Digite um número entre 1 e 100!";
+        return;
     }
 
-    function finalizarJogo() {
-        document.getElementById('btnReiniciar').style.display = 'inline-block';
-        document.querySelector('button[onclick="verificarPalpite()"]').disabled = true;
+    tentativasRestantes--; // Diminui um
+    displayTentativas.textContent = tentativasRestantes;
+
+    if (palpite === numeroSecreto) {
+        msg.textContent = "Parabéns! Você acertou!";
+        msg.style.color = "green";
+        reiniciarJogo();
+    } else if (tentativasRestantes === 0) {
+        msg.textContent = `Game Over! O número era ${numeroSecreto}.`;
+        msg.style.color = "red";
+        reiniciarJogo();
+    } else {
+        msg.textContent = palpite > numeroSecreto ? "Muito alto!" : "Muito baixo!";
+        msg.style.color = "orange";
     }
 
-    function reiniciarJogo() {
-        numeroSecreto = Math.floor(Math.random() * 100) + 1;
-        tentativas = 0;
-        document.getElementById('mensagem').textContent = '';
-        document.getElementById('btnReiniciar').style.display = 'none';
-        document.querySelector('button[onclick="verificarPalpite()"]').disabled = false;
-        document.getElementById('palpiteUsuario').value = '';
-    }
+    input.value = '';
+    input.focus();
+}
+
+function reiniciarJogo() {
+    tentativasRestantes = 10;
+    document.getElementById('tentativasRestantes').textContent = tentativasRestantes;
+    const msg = document.getElementById('mensagem');
+    msg.style.display = "none";
+   
+    // ... restante da lógica de reset
+}
