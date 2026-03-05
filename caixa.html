@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAIXA</title>
+    <script src="saldo.js"></script>
+    <link rel="stylesheet" href="style.css" >
+     
+  </style>
+</head>
+<body>
+        
+    <main>
+        
+    <section>
+           <div class="container">
+                <h1>Caixa Eletrônico 24 horas</h1>
+                <h2 id="saldo">Saldo: R$ 0,00</h2>
+                <input type="number" id="valorDeposito" placeholder="Valor a depositar" />
+                <button onclick="caixaEletronico.depositar()">Depositar</button>
+                <input type="number" id="valorSaque" placeholder="Valor a sacar" />
+                <button onclick="caixaEletronico.sacar()">Sacar</button>
+          </div>
+    </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
