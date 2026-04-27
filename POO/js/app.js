@@ -5,7 +5,7 @@
 import { Item, ListaDeCompras }                           from './classes.js';
 import { formatarMoeda, validarEntrada, parsearValor,
          iconeDaCategoria, corDaCategoria,
-         calcularPorcentagem }                            from './utils.js';
+         calcularPorcentagem }                            from './util.js';
 
 // ── Instância global da lista ────────────────────────────────
 const lista = new ListaDeCompras();

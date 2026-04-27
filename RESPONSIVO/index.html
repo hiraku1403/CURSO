@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agência Criativa Web</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="#home">Criativa<span>Web</span></a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transformamos Ideias em Experiências Digitais</h1>
+            <p>Design moderno, desenvolvimento de alta performance e foco em resultados para o seu negócio.</p>
+            <a href="#contato" class="btn-primary">Fale com um Especialista</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container flex-container">
+            <div class="sobre-texto">
+                <h2>Sobre a Agência</h2>
+                <p>A Agência Criativa Web nasceu com o propósito de inovar no mercado digital. Unimos criatividade, tecnologia e estratégia para construir marcas fortes e produtos digitais que engajam e convertem.</p>
+                <p>Nossos valores são pautados na transparência, na busca incessante pela qualidade e no compromisso com o sucesso dos nossos parceiros.</p>
+            </div>
+            <div class="sobre-imagem">
+                <img 
+                    src="https://via.placeholder.com/800x600" 
+                    srcset="https://via.placeholder.com/480x360 480w, 
+                            https://via.placeholder.com/800x600 800w, 
+                            https://via.placeholder.com/1200x900 1200w" 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    alt="Equipe da Agência Criativa Web trabalhando">
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="grid-servicos">
+                <div class="card-servico">
+                    <h3>Design Gráfico</h3>
+                    <p>Criação de identidades visuais impactantes, materiais publicitários e peças para redes sociais.</p>
+                </div>
+                <div class="card-servico">
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Sites responsivos, landing pages otimizadas e e-commerces de alta conversão.</p>
+                </div>
+                <div class="card-servico">
+                    <h3>Branding</h3>
+                    <p>Posicionamento de marca, tom de voz e estratégias para conectar sua empresa ao público certo.</p>
+                </div>
+                <div class="card-servico">
+                    <h3>SEO & Performance</h3>
+                    <p>Otimização para motores de busca e análise de dados para maximizar o seu tráfego orgânico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <div class="flex-depoimentos">
+                <blockquote class="depoimento-card">
+                    <p>"O novo site desenvolvido pela Criativa Web aumentou nossas conversões em 40% no primeiro mês. Trabalho impecável!"</p>
+                    <cite>- João Silva, TechSolutions</cite>
+                </blockquote>
+                <blockquote class="depoimento-card">
+                    <p>"Eles entenderam a essência da nossa marca e criaram uma identidade visual que nos destacou no mercado."</p>
+                    <cite>- Maria Souza, Chuá Brand</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="container flex-contato">
+            <div class="contato-info">
+                <h2>Vamos conversar?</h2>
+                <p>Preencha o formulário ou entre em contato pelos nossos canais diretos.</p>
+                <ul>
+                    <li>📍 Av. Paulista, 1000 - São Paulo, SP</li>
+                    <li>📞 (11) 99999-9999</li>
+                    <li>✉️ ola@criativaweb.com.br</li>
+                </ul>
+            </div>
+            <div class="contato-form">
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos te ajudar?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Agência Criativa Web. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
