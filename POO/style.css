@@ -1,0 +1,406 @@
+/* ============================================================
+   styles.css — Lista de Compras
+   Estética: editorial com toques retrô-modernos
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ── Variáveis ─────────────────────────────────────────────── */
+:root {
+  --bg:        #F5F0E8;
+  --surface:   #FDFAF4;
+  --border:    #D8D0C0;
+  --text:      #1A1410;
+  --text-muted:#7A6F60;
+  --accent:    #C4380A;
+  --accent-2:  #1A3A5C;
+  --success:   #2D7A4F;
+  --radius:    12px;
+  --shadow:    0 4px 24px rgba(26,20,16,.10);
+  --shadow-lg: 0 12px 48px rgba(26,20,16,.16);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, var(--border) 39px, var(--border) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, var(--border) 39px, var(--border) 40px);
+  background-size: 40px 40px;
+  min-height: 100vh;
+  color: var(--text);
+  padding: 2rem 1rem 4rem;
+}
+
+/* ── Layout ────────────────────────────────────────────────── */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Cabeçalho ─────────────────────────────────────────────── */
+.app-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.app-header::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.app-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.app-title span {
+  color: var(--accent);
+}
+
+.app-subtitle {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: .95rem;
+  margin-top: .4rem;
+}
+
+/* ── Card principal ────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+/* ── Formulário ────────────────────────────────────────────── */
+.form-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+
+label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  padding: .75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: '▾';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+  font-size: .85rem;
+}
+
+select:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(26,58,92,.12);
+}
+
+input.input-invalido {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(196,56,10,.10);
+}
+
+/* ── Erro ──────────────────────────────────────────────────── */
+.erro-box {
+  background: #FEF0EC;
+  border: 1.5px solid #F5C4B4;
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  color: var(--accent);
+  font-size: .9rem;
+}
+
+.erro-box p + p { margin-top: .35rem; }
+
+/* ── Botões ────────────────────────────────────────────────── */
+.btn-row {
+  display: flex;
+  gap: .75rem;
+  margin-top: .25rem;
+}
+
+.btn {
+  flex: 1;
+  padding: .85rem 1.5rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .03em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, background .2s, color .2s;
+}
+
+.btn:active { transform: scale(.97); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(196,56,10,.30);
+}
+
+.btn-primary:hover {
+  background: #a82e06;
+  box-shadow: 0 6px 20px rgba(196,56,10,.40);
+}
+
+.btn-primary.sucesso {
+  background: var(--success);
+  box-shadow: 0 4px 16px rgba(45,122,79,.30);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+/* ── Resultado ─────────────────────────────────────────────── */
+.resultado-section {
+  margin-top: 2rem;
+}
+
+.resultado-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.resultado-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contador-badge {
+  font-size: .8rem;
+  background: var(--accent-2);
+  color: #fff;
+  padding: .2rem .65rem;
+  border-radius: 999px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+}
+
+/* ── Grid de cartões ───────────────────────────────────────── */
+.lista-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Cartão de categoria ───────────────────────────────────── */
+.cartao-categoria {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-top: 4px solid var(--cor-cat, #999);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.cartao-categoria.animar-entrada {
+  animation: entrar .45s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes entrar {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cartao-header {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .85rem;
+}
+
+.cat-icone { font-size: 1.4rem; }
+
+.cat-nome {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.cat-total {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--cor-cat, var(--accent));
+}
+
+/* ── Barra de progresso ────────────────────────────────────── */
+.barra-wrap {
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: .35rem;
+}
+
+.barra-fill {
+  height: 100%;
+  background: var(--cor-cat, #999);
+  border-radius: 999px;
+  width: 0;
+}
+
+.barra-pct {
+  font-size: .75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: .85rem;
+}
+
+/* ── Itens individuais ─────────────────────────────────────── */
+.itens-lista {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.item-linha {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+  background: var(--bg);
+  font-size: .88rem;
+}
+
+.item-nome { flex: 1; color: var(--text-muted); }
+
+.item-valor {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-remover {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: .75rem;
+  line-height: 1;
+  padding: .2rem .35rem;
+  border-radius: 4px;
+  transition: background .15s, color .15s;
+}
+
+.btn-remover:hover {
+  background: #FDDDD5;
+  color: var(--accent);
+}
+
+/* ── Rodapé total ──────────────────────────────────────────── */
+.total-box {
+  margin-top: 1.5rem;
+  background: var(--accent-2);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+.total-valor {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+/* ── Utilitário ────────────────────────────────────────────── */
+.oculto { display: none !important; }
+
+/* ── Vibrar ────────────────────────────────────────────────── */
+@keyframes vibrar {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+
+.vibrar { animation: vibrar .45s ease; }
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .card { padding: 1.25rem; }
+  .btn-row { flex-direction: column; }
+  .total-valor { font-size: 1.4rem; }
+}

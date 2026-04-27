@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Compras</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Cabeçalho -->
+    <header class="app-header">
+      <h1 class="app-title">Lista de <span>Compras</span></h1>
+      <p class="app-subtitle">Registre seus gastos por categoria e acompanhe o total.</p>
+    </header>
+
+    <!-- Formulário -->
+    <div class="card">
+      <form id="form-compra" novalidate>
+        <div class="form-grid">
+
+          <!-- Categoria -->
+          <div class="field">
+            <label for="categoria">Categoria</label>
+            <div class="select-wrap">
+              <select id="categoria" name="categoria" required>
+                <option value="">Selecione…</option>
+                <option value="Alimentação">🛒 Alimentação</option>
+                <option value="Lazer">🎉 Lazer</option>
+                <option value="Aluguel">🏠 Aluguel</option>
+                <option value="Outros">📦 Outros</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Valor -->
+          <div class="field">
+            <label for="valor">Valor (R$)</label>
+            <input
+              type="number"
+              id="valor"
+              name="valor"
+              placeholder="0,00"
+              min="0.01"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <!-- Erro -->
+          <div id="erro-box" class="erro-box oculto" role="alert" aria-live="polite"></div>
+
+          <!-- Botões -->
+          <div class="btn-row">
+            <button type="submit" id="btn-calcular" class="btn btn-primary">Adicionar</button>
+            <button type="button" id="btn-limpar"   class="btn btn-secondary">Limpar tudo</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <!-- Resultado -->
+    <section id="resultado" class="resultado-section oculto" aria-live="polite">
+
+      <div class="resultado-header">
+        <span class="resultado-titulo">Resumo dos gastos</span>
+        <span id="contador" class="contador-badge">0 itens</span>
+      </div>
+
+      <!-- Cartões por categoria -->
+      <div id="lista-categorias" class="lista-grid"></div>
+
+      <!-- Total geral -->
+      <div class="total-box">
+        <span class="total-label">Total geral</span>
+        <span id="total-geral" class="total-valor">R$ 0,00</span>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ES Modules -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
