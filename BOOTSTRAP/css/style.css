@@ -1,0 +1,19 @@
+  :root {
+            --cor-ouro: #c5a059;
+            --cor-fundo: #121212;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--cor-fundo); color: #fff; }
+        h1, h2, h3, .navbar-brand { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        
+        .navbar { background-color: rgba(0,0,0,0.9); border-bottom: 2px solid var(--cor-ouro); }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1920') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .btn-ouro { background-color: var(--cor-ouro); color: #000; font-weight: bold; }
+        .btn-ouro:hover { background-color: #a38448; color: #fff; }
+        .card { background-color: #1e1e1e; border: 1px solid #333; color: #fff; transition: 0.3s; }
+        .card:hover { border-color: var(--cor-ouro); transform: translateY(-5px); }
+        .text-ouro { color: var(--cor-ouro); }
