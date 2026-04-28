@@ -1,15 +1,16 @@
 /* ==========================================================================
-   Variáveis e Reset
+   1. BASE (Variáveis, Reset e Tipografia)
    ========================================================================== */
 :root {
-    --cor-primaria: #4F46E5;
-    --cor-primaria-hover: #4338CA;
-    --cor-secundaria: #111827;
-    --cor-texto: #4B5563;
-    --cor-fundo: #F9FAFB;
-    --cor-branco: #FFFFFF;
+    --color-primary: #4F46E5;
+    --color-primary-hover: #4338CA;
+    --color-secondary: #111827;
+    --color-text: #4B5563;
+    --color-bg-main: #F9FAFB;
+    --color-bg-white: #FFFFFF;
+    --color-border: #D1D5DB;
     
-    --fonte-principal: 'Poppins', sans-serif;
+    --font-main: 'Poppins', sans-serif;
 }
 
 * {
@@ -20,13 +21,12 @@
 
 html {
     scroll-behavior: smooth;
-    /* 1rem = 16px por padrão */
 }
 
 body {
-    font-family: var(--fonte-principal);
-    color: var(--cor-texto);
-    background-color: var(--cor-fundo);
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background-color: var(--color-bg-main);
     line-height: 1.6;
 }
 
@@ -46,43 +46,104 @@ img {
 }
 
 /* ==========================================================================
-   Classes Utilitárias
+   2. LAYOUT
    ========================================================================== */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.section {
     padding: 4rem 0;
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: var(--cor-secundaria);
-    margin-bottom: 3rem;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: var(--cor-primaria);
-    color: var(--cor-branco);
-    padding: 0.8rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: var(--cor-primaria-hover);
+.section--bg-white {
+    background-color: var(--color-bg-white);
 }
 
 /* ==========================================================================
-   Header e Navegação (Flexbox)
+   3. COMPONENTES (Reutilizáveis em todo o site)
    ========================================================================== */
+
+/* Botões */
+.button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button--primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+}
+
+.button--primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* Títulos */
+.title {
+    color: var(--color-secondary);
+    line-height: 1.2;
+}
+
+.title--section {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.title--center {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+}
+
+/* Formulários */
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.form__input,
+.form__textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form__submit {
+    width: 100%; /* Botão ocupa 100% no mobile */
+}
+
+/* ==========================================================================
+   4. SEÇÕES ESPECÍFICAS
+   ========================================================================== */
+
+/* Header & Logo */
 .header {
-    background-color: var(--cor-branco);
+    background-color: var(--color-bg-white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -91,37 +152,39 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Permite quebra no mobile */
+    flex-wrap: wrap;
 }
 
-.logo a {
+.logo__link {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--cor-secundaria);
+    color: var(--color-secondary);
 }
 
-.logo span {
-    color: var(--cor-primaria);
+.logo__highlight {
+    color: var(--color-primary);
 }
 
-.nav-menu ul {
+/* Navegação */
+.nav__list {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem; /* Margem no mobile */
 }
 
-.nav-menu a {
+.nav__link {
     font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
-.nav-menu a:hover {
-    color: var(--cor-primaria);
+.nav__link:hover {
+    color: var(--color-primary);
 }
 
-/* ==========================================================================
-   Seção Home / Hero
-   ========================================================================== */
+/* Hero */
 .hero {
     min-height: 80vh;
     display: flex;
@@ -130,236 +193,157 @@ img {
     text-align: center;
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(79, 70, 229, 0.8)), 
                 url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
-    color: var(--cor-branco);
+    color: var(--color-bg-white);
     padding: 0 5%;
 }
 
-.hero-content {
+.hero__content {
     max-width: 800px;
 }
 
-.hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsividade fluida para tipografia */
+.hero__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    color: var(--color-bg-white);
 }
 
-.hero p {
+.hero__text {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     color: #E5E7EB;
 }
 
-/* ==========================================================================
-   Seção Sobre Nós (Flexbox)
-   ========================================================================== */
-.flex-container {
+/* Sobre */
+.about__container {
     display: flex;
-    flex-direction: column; /* Mobile first: empilhado */
+    flex-direction: column;
     align-items: center;
     gap: 3rem;
 }
 
-.sobre-texto {
+.about__content,
+.about__image-wrapper {
     flex: 1;
 }
 
-.sobre-texto h2 {
-    font-size: 2rem;
-    color: var(--cor-secundaria);
+.about__text {
     margin-bottom: 1rem;
 }
 
-.sobre-imagem {
-    flex: 1;
+.about__image {
     border-radius: 1rem;
-    overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* ==========================================================================
-   Seção Serviços (CSS Grid)
-   ========================================================================== */
-.servicos {
-    background-color: var(--cor-branco);
-}
-
-.grid-servicos {
+/* Serviços */
+.services__grid {
     display: grid;
-    /* Cria colunas responsivas automaticamente sem precisar de media query */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.card-servico {
-    background-color: var(--cor-fundo);
+.card--service {
+    background-color: var(--color-bg-main);
     padding: 2rem;
     border-radius: 0.5rem;
-    border-left: 4px solid var(--cor-primaria);
+    border-left: 4px solid var(--color-primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-servico:hover {
+.card--service:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
 }
 
-.card-servico h3 {
-    color: var(--cor-secundaria);
+.card__title {
+    color: var(--color-secondary);
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
 
-/* ==========================================================================
-   Seção Depoimentos (Flexbox)
-   ========================================================================== */
-.flex-depoimentos {
+/* Depoimentos */
+.testimonials__list {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.depoimento-card {
-    background-color: var(--cor-branco);
+.testimonial-card {
+    background-color: var(--color-bg-white);
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     font-style: italic;
-    position: relative;
+    flex: 1;
 }
 
-.depoimento-card cite {
+.testimonial-card__author {
     display: block;
     margin-top: 1rem;
     font-weight: 600;
     font-style: normal;
-    color: var(--cor-primaria);
+    color: var(--color-primary);
 }
 
-/* ==========================================================================
-   Seção Contato 
-   ========================================================================== */
-.contato {
-    background-color: var(--cor-branco);
-}
-
-.flex-contato {
+/* Contato */
+.contact__container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
-.contato-info {
+.contact__info {
     flex: 1;
 }
 
-.contato-info h2 {
-    font-size: 2rem;
-    color: var(--cor-secundaria);
-    margin-bottom: 1rem;
+.contact__text {
+    margin-bottom: 1.5rem;
 }
 
-.contato-info ul {
-    margin-top: 1.5rem;
-}
-
-.contato-info li {
+.contact__item {
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
 }
 
-.contato-form {
+.contact__form-wrapper {
     flex: 1.5;
-    background-color: var(--cor-fundo);
+    background-color: var(--color-bg-main);
     padding: 2rem;
     border-radius: 0.5rem;
 }
 
-.input-group {
-    margin-bottom: 1.5rem;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--cor-secundaria);
-}
-
-.input-group input,
-.input-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #D1D5DB;
-    border-radius: 0.25rem;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.input-group input:focus,
-.input-group textarea:focus {
-    outline: none;
-    border-color: var(--cor-primaria);
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-}
-
-/* ==========================================================================
-   Rodapé
-   ========================================================================== */
-footer {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-branco);
+/* Rodapé */
+.footer {
+    background-color: var(--color-secondary);
+    color: var(--color-bg-white);
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
 }
 
 /* ==========================================================================
-   Media Queries (Adaptações para Desktop/Tablets maiores)
+   5. MEDIA QUERIES (Desktop / Tablets Maiores)
    ========================================================================== */
 @media (min-width: 768px) {
-    /* Navbar no Tablet/Desktop */
+    /* Header e Navegação */
     .header {
         flex-wrap: nowrap;
     }
     
-    .nav-menu ul {
+    .nav__list {
+        margin-top: 0;
         gap: 2rem;
     }
 
-    /* Sobre Nós passa a ser lado a lado */
-    .flex-container {
+    /* Layouts que passam de coluna para linha (lado a lado) */
+    .about__container,
+    .testimonials__list,
+    .contact__container {
         flex-direction: row;
     }
 
-    /* Depoimentos passam a ser lado a lado */
-    .flex-depoimentos {
-        flex-direction: row;
-    }
-
-    .depoimento-card {
-        flex: 1;
-    }
-
-    /* Contato passa a ser lado a lado */
-    .flex-contato {
-        flex-direction: row;
-    }
-}
-
-@media (max-width: 767px) {
-    /* Ajustes específicos para mobile */
-    .nav-menu {
-        width: 100%;
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .nav-menu ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+    /* Ajuste no botão do formulário para não ocupar 100% em desktop */
+    .form__submit {
+        width: auto;
     }
 }
