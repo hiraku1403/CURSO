@@ -1,0 +1,7 @@
+// O SASS processa os imports na ordem em que são declarados
+@use 'base';
+@use 'layout';
+@use 'componentes'; 
+
+// Nota: as variáveis e mixins já são chamadas internamente 
+// nos arquivos que precisam delas através do @use.

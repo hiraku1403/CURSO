@@ -1,0 +1,113 @@
+@use 'variaveis' as v;
+@use 'mixins' as m;
+
+/* Botões */
+.button {
+    @include m.btn-base;
+
+    &--primary {
+        background-color: v.$color-primary;
+        color: v.$color-bg-white;
+
+        &:hover {
+            background-color: v.$color-primary-hover;
+        }
+    }
+}
+
+/* Títulos */
+.title {
+    color: v.$color-secondary;
+    line-height: 1.2;
+
+    &--section {
+        font-size: 2rem;
+        margin-bottom: v.$spacing-medium;
+    }
+
+    &--center {
+        text-align: center;
+        // Operador para dobrar o espaçamento médio
+        margin-bottom: calc(v.$spacing-medium * 2); 
+        font-size: 2.2rem;
+    }
+}
+
+/* Formulários */
+.form {
+    &__group {
+        margin-bottom: v.$spacing-medium;
+    }
+
+    &__label {
+        display: block;
+        // Operador para dividir o espaçamento base
+        margin-bottom: calc(v.$spacing-base / 2); 
+        font-weight: 600;
+        color: v.$color-secondary;
+    }
+
+    &__input,
+    &__textarea {
+        width: 100%;
+        padding: calc(v.$spacing-base * 0.8);
+        border: 1px solid v.$color-border;
+        border-radius: 0.25rem;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: v.$color-primary;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+    }
+
+    &__submit {
+        width: 100%;
+        @include m.respond-to('tablet') {
+            width: auto;
+        }
+    }
+}
+
+/* Cards de Serviço */
+.card {
+    &--service {
+        background-color: v.$color-bg-main;
+        padding: calc(v.$spacing-base * 2);
+        border-radius: 0.5rem;
+        border-left: 4px solid v.$color-primary;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    &__title {
+        color: v.$color-secondary;
+        margin-bottom: v.$spacing-base;
+        font-size: 1.25rem;
+    }
+}
+
+/* Depoimentos */
+.testimonial-card {
+    background-color: v.$color-bg-white;
+    padding: calc(v.$spacing-base * 2);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    flex: 1;
+
+    &__author {
+        display: block;
+        margin-top: v.$spacing-base;
+        font-weight: 600;
+        font-style: normal;
+        color: v.$color-primary;
+    }
+}

@@ -1,0 +1,26 @@
+// Mixin para centralização com Flexbox
+@mixin flex-center($direction: row, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center; 
+    gap: $gap;
+}
+
+// Mixin para a base dos botões
+@mixin btn-base {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+// Mixin para responsividade (Media Queries)
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'tablet' {
+        @media (min-width: 768px) { @content; }
+    }
+}
