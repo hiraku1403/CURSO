@@ -1,0 +1,51 @@
+// Mock de produtos — simula retorno de API
+export const mockProdutos = [
+  {
+    id: 1,
+    nome: "Poltrona Wabi",
+    preco: 2890,     
+    descricao: "Design orgânico em linho natural com estrutura de carvalho maciço. Peça atemporal para espaços contemplativos.",
+    categoria: "Mobiliário",
+    imagem: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80",
+  },
+  {
+    id: 2,
+    nome: "Luminária Arco",
+    preco: 1240,
+    descricao: "Arco em aço carbono com acabamento fosco. Iluminação direcionável, perfeita para leitura e ambientação.",
+    categoria: "Iluminação",
+    imagem: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80",
+  },
+  {
+    id: 3,
+    nome: "Vaso Terroso",
+    preco: 390,
+    descricao: "Cerâmica artesanal moldada à mão com esmalte de cinza basalto. Cada peça é única e irrepetível.",
+    categoria: "Decoração",
+    imagem: "https://images.unsplash.com/photo-1612196808214-b7e239e5f6b4?w=500&q=80",
+  },
+  {
+    id: 4,
+    nome: "Mesa Ripada",
+    preco: 4600,
+    descricao: "Mesa de jantar em madeira teca com ripas espaçadas. Combina solidez estrutural com leveza visual.",
+    categoria: "Mobiliário",
+    imagem: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80",
+  },
+  {
+    id: 5,
+    nome: "Espelho Oval",
+    preco: 780,
+    descricao: "Espelho bisotado em moldura de rattan trançado à mão. Traz textura orgânica e amplitude ao ambiente.",
+    categoria: "Decoração",
+    imagem: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80",
+  },
+  {
+    id: 6,
+    nome: "Tapete Lã Merino",
+    preco: 2100,
+    descricao: "100% lã merino neozelandesa em tear manual. Padrão geométrico minimalista em tom areia e carvão.",
+    categoria: "Têxteis",
+    imagem: "https://images.unsplash.com/photo-1567225557594-88d73e55f2cb?w=500&q=80",
+  },
+];
